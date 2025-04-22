@@ -22,3 +22,4 @@ def pull_data_from_mongo(query: Dict):
 def push_mongo_to_s3(query):
     for element in pull_data_from_mongo(query):
         upload(element)
+
