@@ -8,6 +8,6 @@ workflows:
     jobs:
       - ggshield/scan:
           name: ggshield-scan
-          base_revision: <<pipeline.git.base_revision>>
-          revision: <<pipeline.git.revision>>
-          api-key: $GITGUARDIAN_API_KEY
+          base_revision: << pipeline.git.base_revision >>
+          revision: << pipeline.git.revision >>
+          api_key: $GITGUARDIAN_API_KEY
