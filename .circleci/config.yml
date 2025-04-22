@@ -10,4 +10,3 @@ workflows:
           name: ggshield-scan
           base_revision: << pipeline.git.base_revision >>
           revision: << pipeline.git.revision >>
-          api_key: $GITGUARDIAN_API_KEY
