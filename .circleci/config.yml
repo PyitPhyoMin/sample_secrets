@@ -10,3 +10,4 @@ workflows:
           name: ggshield-scan
           base_revision: << pipeline.git.base_revision >>
           revision: << pipeline.git.revision >>
+          pre-command: ggshield secret scan repo --mode=all --show-secrets .
