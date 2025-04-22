@@ -1,12 +1,21 @@
 version: 2.1
 
-orbs:
-  ggshield: gitguardian/ggshield@volatile
+jobs:
+  scan_full_repo:
+    docker:
+      - image: cimg/python:3.10
+    steps:
+      - checkout
+
+      - run:
+          name: Install ggshield
+          command: pip install ggshield
+
+      - run:
+          name: Run full repo scan
+          command: ggshield secret scan repo .
 
 workflows:
   scan_my_commits:
     jobs:
-      - ggshield/scan:
-          name: ggshield-scan
-          base_revision: << pipeline.git.base_revision >>
-          revision: << pipeline.git.revision >>
+      - scan_full_repo
